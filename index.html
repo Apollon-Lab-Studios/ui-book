@@ -1,233 +1,677 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📚 My UI/UX Design Bookshelf</title>
-    <style>
-        :root {
-            --primary-color: #f4f1ea;
-            --secondary-color: #fff;
-            --accent-color: #ccc;
-            --text-color: #444;
-            --text-light: #666;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --transition: all 0.2s ease;
-        }
-
-        body {
-            background: var(--primary-color);
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            padding: 2rem;
-            color: var(--text-color);
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2rem;
-            color: #333;
-        }
-
-        .bookshelf {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .book {
-            background: var(--secondary-color);
-            border: 2px solid var(--accent-color);
-            border-radius: 8px;
-            padding: 1rem;
-            box-shadow: 2px 4px 10px var(--shadow-color);
-            transition: var(--transition);
-        }
-
-        .book:hover {
-            transform: scale(1.03);
-            box-shadow: 2px 6px 15px var(--shadow-color);
-        }
-
-        .book img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 4px;
-            background-color: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-size: 2rem;
-        }
-
-        .book-title {
-            margin-top: 0.75rem;
-            font-weight: bold;
-            font-size: 1rem;
-            color: #333;
-        }
-
-        .book-pages {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin: 0.25rem 0;
-        }
-
-        .book-desc {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            max-height: 3em;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            position: relative;
-        }
-
-        .more-btn {
-            font-size: 0.8rem;
-            color: #0066cc;
-            cursor: pointer;
-            margin-top: 0.5rem;
-        }
-
-        .download-btn {
-            margin-top: 0.75rem;
-            display: inline-block;
-            background: #4CAF50;
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .download-btn:hover {
-            background: #45a049;
-        }
-
-        .download-btn1 {
-            margin-top: 0.75rem;
-            display: inline-block;
-            background: #EE4B2B;
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .download-btn1:hover {
-            background: #d64323;
-        }
-
-        .original {
-            margin-top: 0.75rem;
-            display: inline-block;
-            background: #0096FF;
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .original:hover {
-            background: #0085e0;
-        }
-
-        @media (max-width: 768px) {
-            .bookshelf {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-        }
-
-        @media (max-width: 480px) {
-            .bookshelf {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📚 My UI/UX Design Bookshelf</title>
+  <style>
+    body {
+      background: #f4f1ea;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .bookshelf {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .book {
+      background: #fff;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+    .book:hover {
+      transform: scale(1.05);
+    }
+    .book img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .book-title {
+      margin-top: 0.75rem;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .book-pages {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 0.25rem 0;
+    }
+    .book-desc {
+      font-size: 0.9rem;
+      color: #444;
+      max-height: 3em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+    }
+    .more-btn {
+      font-size: 0.8rem;
+      color: #0066cc;
+      cursor: pointer;
+    }
+    .download-btn {
+      margin-top: 0.75rem;
+      display: inline-block;
+      background: #4CAF50;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .download-btn1 {
+      margin-top: 0.75rem;
+      display: inline-block;
+      background: #EE4B2B;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .original {
+      margin-top: 0.75rem;
+      display: inline-block;
+      background: #0096FF;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>📚 My UI/UX Design Bookshelf</h1>
-    <div class="bookshelf">
-        <!-- Book Template -->
-        <div class="book">
-            <div style="display: flex; align-items: center; justify-content: center; height: 200px; background-color: #e0e0e0; color: #888; font-size: 2rem;">📖</div>
-            <div class="book-title">1. Refactoring UI by Adam Wathan & Steve Schoger</div>
-            <div class="book-pages">Price $99 | Pages 218</div>
-            <div class="book-pages">Price $00 | Pages 252</div>
-            <a class="original" href="https://www.refactoringui.com/">Original PDF</a>
-            <a class="download-btn" href="https://drive.usercontent.google.com/uc?id=15WvJHy6rlmp2iciwWgGxaNFLzVQO0Z5t&export=download">Download PDF</a>
-        </div>
+  <h1>📚 My UI/UX Design Bookshelf</h1>
+  <div class="bookshelf">
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a42f6_670c6c937b2d0225cc2801b8_refactoring-ui.webp" alt="Book 1">
+      </a>
+      <div class="book-title">1. Refactoring UI by Adam Wathan & Steve Schoger</div>
+      <div class="book-pages"> Price $99 | Pages 218</div>
+      <div class="book-pages"> Price $00 | Pages 252</div>
+      <a class="original" href="https://www.refactoringui.com/">Original PDF</a>
+      <a class="download-btn" href="https://drive.usercontent.google.com/uc?id=15WvJHy6rlmp2iciwWgGxaNFLzVQO0Z5t&export=download">Download PDF</a>
 
-        <!-- Book Template -->
-        <div class="book">
-            <div style="display: flex; align-items: center; justify-content: center; height: 200px; background-color: #e0e0e0; color: #888; font-size: 2rem;">📖</div>
-            <div class="book-title">2. Practical UI by Adham Dannaway</div>
-            <div class="book-pages">Price $79 | Pages 373</div>
-            <div class="book-pages">Price $00 | Pages 373</div>
-            <a class="original" href="https://www.practical-ui.com">Original PDF</a>
-            <a class="download-btn" href="https://drive.usercontent.google.com/download?id=1d4GvUwWs-eBhJhIEhrtvwkO_E30LRDVf&export=download">Download PDF</a>
-        </div>
-
-        <!-- Book Template -->
-        <div class="book">
-            <div style="display: flex; align-items: center; justify-content: center; height: 200px; background-color: #e0e0e0; color: #888; font-size: 2rem;">📖</div>
-            <div class="book-title">3. How to Design Better UI Components 3.0 by Adrian Kuleszo</div>
-            <div class="book-pages">Price $09 | Pages 197</div>
-            <div class="book-pages">Price $00 | Pages 197</div>
-            <a class="original" href="https://www.howtodesignbetter.com">Original PDF</a>
-            <a class="download-btn" href="https://drive.usercontent.google.com/download?id=12KpkfwFh0wel144Brrlm6H8moxSdSNOk&export=download&authuser=0">Download PDF</a>
-        </div>
-
-        <!-- Book Template -->
-        <div class="book">
-            <div style="display: flex; align-items: center; justify-content: center; height: 200px; background-color: #e0e0e0; color: #888; font-size: 2rem;">📖</div>
-            <div class="book-title">4. Better Web Typography for a Better Web by Matej Latin</div>
-            <div class="book-pages">Price $49.95 | Pages 235</div>
-            <div class="book-pages">Price $00.00 | Pages 000</div>
-            <a class="original" href="https://betterwebtype.com/web-typography-book/">Original PDF</a>
-            <a class="download-btn1" href="xxxxxxxxxxxx">Download PDF</a>
-        </div>
-
-        <!-- Book Template -->
-        <div class="book">
-            <div style="display: flex; align-items: center; justify-content: center; height: 200px; background-color: #e0e0e0; color: #888; font-size: 2rem;">📖</div>
-            <div class="book-title">5. The Visual History of Type by Paul McNeil</div>
-            <div class="book-pages">Price $41.99 | Pages 672</div>
-            <div class="book-pages">Price $00.00 | Pages 000</div>
-            <a class="original" href="https://www.amazon.com/Visual-History-Type-Paul-McNeil/dp/1780679769">Original PDF</a>
-            <a class="download-btn1" href="xxxxx">Download PDF</a>
-        </div>
-
-        <!-- Book Template -->
-        <div class="book">
-            <div style="display: flex; align-items: center; justify-content: center; height: 200px; background-color: #e0e0e0; color: #888; font-size: 2rem;">📖</div>
-            <div class="book-title">6. UI Design Systems Mastery by Marina Budarina</div>
-            <div class="book-pages">Price $64.90 | Pages 358+</div>
-            <div class="book-pages">Price $00.00 | Pages 360</div>
-            <a class="original" href="https://marinabudarina.design/ebook-ui-design-systems">Original PDF</a>
-            <a class="download-btn" href="https://drive.usercontent.google.com/download?id=1gvDLinN7B8dclKa9g_kc9u16NzI5pOsk&export=download&authuser=0">Download PDF</a>
-        </div>
-
-        <!-- Book Template -->
-        <div class="book">
-            <div style="display: flex; align-items: center; justify-content: center; height: 200px; background-color: #e0e0e0; color: #888; font-size: 2rem;">📖</div>
-            <div class="book-title">7. The Design Manual by Adrian Kuleszo</div>
-            <div class="book-pages">Price $59 | Pages 770+</div>
-            <div class="book-pages">Price $00 | Pages 623+</div>
-            <a class="original" href="https://www.howtodesignbetter.com/#products">Original PDF</a>
-            <a class="download-btn" href="https://drive.usercontent.google.com/download?id=1SLy8THf0AHx1YA7cRjrl0dAdsRpVZSFz&export=download&authuser=0">Download PDF</a>
-        </div>
-
-        <!-- Book Template -->
-        <div class="book">
-            <div style="display: flex; align-items: center; justify-content: center; height: 200px; background-color: #e0e0e0; color: #888; font
+    </div>
+    <!-- Add more book entries as needed -->
+    
+    
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a42f0_670c6ca2f934b081512af68c_practical-ui.webp" alt="Book 1">
+      </a>
+      <div class="book-title">2. Practical UI by Adham Dannaway</div>
+      <div class="book-pages"> Price $79 | Pages 373</div>
+      <div class="book-pages"> Price $00 | Pages 373</div>
+      <a class="original" href="https://www.practical-ui.com">Original PDF</a>
+      <a class="download-btn" href="https://drive.usercontent.google.com/download?id=1d4GvUwWs-eBhJhIEhrtvwkO_E30LRDVf&export=download">Download PDF</a>
+    </div>
+    <!-- Add more book entries as needed -->
+    
+    
+    
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a4314_670c6cb17eea1683bb93ce91_how-to-design-better-ui.webp" alt="Book 1">
+      </a>
+      <div class="book-title">3. How to Design Better UI Components 3.0 by Adrian Kuleszo</div>
+      <div class="book-pages"> Price $09 | Pages 197</div>
+      <div class="book-pages"> Price $00 | Pages 197</div>
+      <a class="original" href="https://www.howtodesignbetter.com">Original PDF</a>
+      <a class="download-btn" href="https://drive.usercontent.google.com/download?id=12KpkfwFh0wel144Brrlm6H8moxSdSNOk&export=download&authuser=0">Download PDF</a>
+      </div>
+    <!-- Add more book entries as needed -->
+        
+    
+    
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a42ff_670c6cbec830e982d24fc826_better-web-typography.webp" alt="Book 1">
+      </a>
+      <div class="book-title">4. Better Web Typography for a Better Web by Matej Latin</div>
+      <div class="book-pages"> Price $49.95 | Pages 235</div>
+      <div class="book-pages"> Price $00.00 | Pages 000</div>
+      <a class="original" href="https://betterwebtype.com/web-typography-book/">Original PDF</a>
+      <a class="download-btn1" href="xxxxxxxxxxxx">Download PDF</a>
+            
+    </div>
+    <!-- Add more book entries as needed -->
+            
+    
+    
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a42ed_670c6d03022ee42d298392a6_the-visual-history-of-type.webp" alt="Book 1">
+      </a>
+      <div class="book-title">5. The Visual History of Type by Paul McNeil</div>
+      <div class="book-pages"> Price $41.99 | Pages 672</div>
+      <div class="book-pages"> Price $00.00 | Pages 000</div>
+      
+      <a class="original" href="https://www.amazon.com/Visual-History-Type-Paul-McNeil/dp/1780679769">Original PDF</a>
+      
+      <a class="download-btn1" href="xxxxx">Download PDF</a>
+    </div>
+    <!-- Add more book entries as needed -->
+    
+                
+    
+    
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a431a_670c6d15f63fc36806051679_ui-design-systems-mastery.webp" alt="Book 1">
+      </a>
+      <div class="book-title">6. UI Design Systems Mastery by Marina Budarina</div>
+      <div class="book-pages"> Price $64.90 | Pages 358+</div>
+      <div class="book-pages"> Price $00.00 | Pages 360</div>
+      
+      <a class="original" href="https://marinabudarina.design/ebook-ui-design-systems">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/download?id=1gvDLinN7B8dclKa9g_kc9u16NzI5pOsk&export=download&authuser=0">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                    
+    
+    
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a42f3_670c6d235e202331a9349cd3_the-design-manual.webp" alt="Book 1">
+      </a>
+      <div class="book-title">7. The Design Manual by Adrian Kuleszo</div>
+      <div class="book-pages"> Price $59 | Pages 770+</div>
+      <div class="book-pages"> Price $00 | Pages 623+</div>
+      
+      <a class="original" href="https://www.howtodesignbetter.com/#products">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/download?id=1SLy8THf0AHx1YA7cRjrl0dAdsRpVZSFz&export=download&authuser=0">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                        
+    
+    
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a4311_670c6d3abcb72874bd6d0662_the-ultimate-guide-to-web-design.webp" alt="Book 1">
+      </a>
+      <div class="book-title">8. The Ultimate Guide to Web Design by Adrian Kuleszo</div>
+      <div class="book-pages"> Price $49 | Pages 346</div>
+      <div class="book-pages"> Price $00 | Pages 347</div>
+      
+      <a class="original" href="https://www.howtodesignbetter.com/web-design-guide?aff=xzmMy">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1fdEdF_rE8yr_ovfXkzD0w4hrYGVuqNio&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+        
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a4320_670c6d489bf6bccf427bc063_master-ui-design-elements.webp" alt="Book 1">
+      </a>
+      <div class="book-title">9. Master UI Design Elements by Denislav Jeliazkov</div>
+      <div class="book-pages"> Price $19 | Pages 239</div>
+      <div class="book-pages"> Price $00 | Pages 222</div>
+      
+      <a class="original" href="https://uilearn.gumroad.com/l/LVnCO">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1HpxGMd-qJCd-1CmK0XdoCodgNo-5oakn&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+            
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a42f9_670c6d564e0b67cd2ac993b8_landing-page-hot-tips.webp" alt="Book 1">
+      </a>
+      <div class="book-title">10. Landing Page Hot Tips by Rob Hope</div>
+      <div class="book-pages"> Price $49 | Pages 204</div>
+      <div class="book-pages"> Price $00 | Pages 180</div>
+      
+      <a class="original" href="https://landingpagehottips.com/">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1Cb-gS4L7B0CQ_Lq_omh18tSVdzl7cakP&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6c3d0eb39edec228261b_670c6bacc75b9c415eb16787_universal-principles-of-design.webp" alt="Book 1">
+      </a>
+      <div class="book-title">11. Universal Principles of Design by William Lidwell</div>
+      <div class="book-pages"> Price $15 | Pages 272</div>
+      <div class="book-pages"> Price $00 | Pages 272</div>
+      
+      <a class="original" href="https://www.amazon.com/Universal-Principles-Design-Revised-Updated/dp/1592535879">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1cBoWbOskICku5pvVB1Sz_YDwVJwRug6S&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://i.imgur.com/bD5LwM3.png" alt="Book 1">
+      </a>
+      <div class="book-title">12. UI Design Principles by Michael Filipiuk</div>
+      <div class="book-pages"> Price $48 | Pages 500+</div>
+      <div class="book-pages"> Price $00 | Pages 487</div>
+      
+      <a class="original" href="https://ui-principles.webflow.io/">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1nnhC5GSrHGoRlyjojI2LL4--1A6pC2UI&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a430e_670c6d897eea1683bb943e99_design-systems.webp" alt="Book 1">
+      </a>
+      <div class="book-title">13. Design Systems by Alla Kholmatova</div>
+      <div class="book-pages"> Price $19 | Pages 288</div>
+      <div class="book-pages"> Price $00 | Pages 289</div>
+      
+      <a class="original" href="https://www.smashingmagazine.com/design-systems-book/">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1aTOXRLH4WQNOF0eYaWa3Oi8brK3KVzKb&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a4317_670c6d9a022ee42d2983f267_laying-the-foundations.webp" alt="Book 1">
+      </a>
+      <div class="book-title">14. Laying the Foundations by Andrew Couldwell</div>
+      <div class="book-pages"> Price $49 | Pages 189</div>
+      <div class="book-pages"> Price $00 | Pages 000</div>
+      
+      <a class="original" href="https://landingpagehottips.com/">Original PDF</a>
+      
+      <a class="download-btn1" href="x">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6c3d0eb39edec2282618_670c6b9f31d10bdc51d7c3cd_ui-is-communication.webp" alt="Book 1">
+      </a>
+      <div class="book-title">15. UI is Communication by Everett N McKay</div>
+      <div class="book-pages"> Price $49 | Pages 189</div>
+      <div class="book-pages"> Price $00 | Pages 000</div>
+      
+      <a class="original" href="https://landingpagehottips.com/">Original PDF</a>
+      
+      <a class="download-btn1" href="x">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                    
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a4323_670c6db95e202331a934f8c3_100-practical-ui-ux-tips.webp" alt="Book 1">
+      </a>
+      <div class="book-title">16. 100 UI/UX Tips & Tricks by Victor Ponamariov</div>
+      <div class="book-pages"> Price $49 | Pages 189</div>
+      <div class="book-pages"> Price $00 | Pages 000</div>
+      
+      <a class="original" href="https://landingpagehottips.com/">Original PDF</a>
+      
+      <a class="download-btn1" href="x">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                        
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a4305_670c6dc7912574cb3d24fc1c_grid-systems.webp" alt="Book 1">
+      </a>
+      <div class="book-title">17. Grid Systems in Graphic Design by Josef Müller-Brockmann</div>
+      <div class="book-pages"> Price $59 | Pages 176</div>
+      <div class="book-pages"> Price $00 | Pages 176</div>
+      
+      <a class="original" href="https://www.amazon.com/Grid-systems-graphic-design-communication/dp/3721201450">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1VExof7bVfS58hRvmnAjr050Z3cHWB5C4&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                            
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a4308_670c6dd8f63fc368060577b0_atomic-design.webp" alt="Book 1">
+      </a>
+      <div class="book-title">18. Atomic Design by Brad Frost</div>
+      <div class="book-pages"> Price $49 | Pages 189</div>
+      <div class="book-pages"> Price $00 | Pages 000</div>
+      
+      <a class="original" href="https://landingpagehottips.com/">Original PDF</a>
+      
+      <a class="download-btn1" href="x">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                                
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a431d_670c6de70c2d2d95eabbbbda_thining-with-type.webp" alt="Book 1">
+      </a>
+      <div class="book-title">19. Thinking with Type by Ellen Lupton
+</div>
+      <div class="book-pages"> Price $49 | Pages 189</div>
+      <div class="book-pages"> Price $00 | Pages 000</div>
+      
+      <a class="original" href="https://www.amazon.com/Thinking-Type-Designers-Critical-Students/dp/1568984480?ref_=ast_author_dp&dib=eyJ2IjoiMSJ9.0xpMRWYRJSedzQdiA_DnDsEQqiS74voaA-IBiHcNNAEUXaFFF4RLBVNSiW0ROwlqvV_WrZBjEyN7y06b97BgUteBu-EYCa6-wsXBpdnPAR8A_rQsopjnwrsTMgwdV0um8NwrnCZtENMIMzac6ktcU4QdBoat7iTGLB7tERBsAnPwwRtYb5jFPmEOWNrMIEPmocYCfD3x5vIbxPCSaGnjUjxGPNTKGY_UJ4xE1cSPsbA.8nvHyni_G3j584d-z6y5DHLhpryOw0dsaiLwKr88xbQ&dib_tag=AUTHOR">Original PDF (v1)</a>
+      <a class="original" href="https://www.amazon.com/Thinking-type-Designers-DESIGNERS-Sep-10-2010/dp/B00FAV1B1Q?ref_=ast_author_dp&dib=eyJ2IjoiMSJ9.0xpMRWYRJSedzQdiA_DnDsEQqiS74voaA-IBiHcNNAEUXaFFF4RLBVNSiW0ROwlqvV_WrZBjEyN7y06b97BgUteBu-EYCa6-wsXBpdnPAR8A_rQsopjnwrsTMgwdV0um8NwrnCZtENMIMzac6ktcU4QdBoat7iTGLB7tERBsAnPwwRtYb5jFPmEOWNrMIEPmocYCfD3x5vIbxPCSaGnjUjxGPNTKGY_UJ4xE1cSPsbA.8nvHyni_G3j584d-z6y5DHLhpryOw0dsaiLwKr88xbQ&dib_tag=AUTHOR">Original PDF (v2)</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1uwMsBlJvZvpGQ3scDCufjvoLLpt94Boj&export=download">Download PDF (v1)</a>
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1usTO5r6k77Ts7e8a1dUQIswnAbozC0cs&export=download">Download PDF (v2)</a>
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                                    
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6c3d0eb39edec228263b_670c6bb9e9e241b80c31f281_about-face.webp" alt="Book 1">
+      </a>
+      <div class="book-title">20. About Face: The Essentials of Interaction Design
+</div>
+      <div class="book-pages"> Price $60 | Pages 720</div>
+      <div class="book-pages"> Price $00 | Pages 722</div>
+      
+      <a class="original" href="https://www.amazon.com/About-Face-Essentials-Interaction-Design/dp/1118766571">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1HBFWFFqu7IdR_ObHWLOPWhwM4PxAmSvy&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                                        
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/670c6e1f87cc90ef9b7a42fc_670c6e02bc6a2c73a54099c2_the-non-designers-design-book.webp" alt="Book 1">
+      </a>
+      <div class="book-title">21. The Non-Designer’s Design Book by Robin Williams
+</div>
+      <div class="book-pages"> Price $49 | Pages 189</div>
+      <div class="book-pages"> Price $00 | Pages 000</div>
+      
+      <a class="original" href="https://landingpagehottips.com/">Original PDF</a>
+      
+      <a class="download-btn1" href="x">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                                            
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://i.ibb.co/8nBJPHTp/Untitled-design.jpg" alt="Book 1">
+      </a>
+      <div class="book-title">22. The UI UX Playbook by Uxpeak
+</div>
+      <div class="book-pages"> Price $59 | Pages 144</div>
+      <div class="book-pages"> Price $00 | Pages 144</div>
+      
+      <a class="original" href="https://www.uxpeak.com/the-ui-ux-playbook">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/download?id=1ckWPtIQCN80yjS9yB0NzidNlg7dMjjL6&export=download&authuser=0">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                                            
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://i.ibb.co/Lz33j91V/Untitled-design.png" alt="Book 1">
+      </a>
+      <div class="book-title">23. ChatGPT for UX UI Prompts and Expert Tips for Maximum Impact
+</div>
+      <div class="book-pages"> Price $10 | Pages 33</div>
+      <div class="book-pages"> Price $00 | Pages 33</div>
+      
+      <a class="original" href="https://www.uxpeak.com/chatgpt-for-ux-ui-design">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/download?id=1z_YkFHkxls5Q9lh5SzhIJZU1RTZIcuKr&export=download&authuser=0">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                                                
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://i.ibb.co/bg5FNwv5/upl.jpg" alt="Book 1">
+      </a>
+      <div class="book-title">24. The Design of Everyday Things by Don Norman
+</div>
+      <div class="book-pages"> Price $20 | Pages 368</div>
+      <div class="book-pages"> Price $00 | Pages 369</div>
+      
+      <a class="original" href="https://www.amazon.com/Design-Everyday-Things-Revised-Expanded/dp/0465050654">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1pvDQjlU-J484VInj4lQltrEgD3ojvscP&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                                            
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://i.ibb.co/N6Ls3DXZ/Untitled-design-1.png" alt="Book 1">
+      </a>
+      <div class="book-title">25. Design for a Better World: Meaningful, Sustainable, Humanity Centered by Don Norman
+</div>
+      <div class="book-pages"> Price $20 | Pages 376</div>
+      <div class="book-pages"> Price $00 | Pages 387</div>
+      
+      <a class="original" href="https://www.amazon.com/Design-Better-World-Meaningful-Sustainable/dp/0262047950">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1B9s43Fb47fxnarPdEq5WgCqNYX6qW7ID&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                                                
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://i.imgur.com/JEWibSE.png" alt="Book 1">
+      </a>
+      <div class="book-title">26. UI Pedia - A Complete UI Design Guide by Pixsel Academy
+</div>
+      <div class="book-pages"> Price $35 | Pages 630</div>
+      <div class="book-pages"> Price $00 | Pages 626</div>
+      
+      <a class="original" href="https://www.instagram.com/p/Co-Oag8P51B/?img_index=2">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/download?id=16Ud3ghLQleGv1MqXEMc1tco_j8ZjGe8x&export=download&authuser=0">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                                                    
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://i.imgur.com/SM85iZW.png" alt="Book 1">
+      </a>
+      <div class="book-title">27. 101 Dos & Don'ts for UI Design by Pixsel Academy
+</div>
+      <div class="book-pages"> Price $35 | Pages 106</div>
+      <div class="book-pages"> Price $00 | Pages 106</div>
+      
+      <a class="original" href="https://sprrrint.gumroad.com/l/uipedia?fbclid=PAZXh0bgNhZW0CMTEAAaeYSdcy2jbRyU87nkINznSm5KxpDs3fjQV7Uth1MUhIWkQesPMnQGJoB9RN6w_aem__MdunNt2Fh3qg9NtztqULg">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1iy840Rx_lPRlYXgcIpBgGJggf5UV62QV&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                                                        
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://i.imgur.com/FoUvIUu.png" alt="Book 1">
+      </a>
+      <div class="book-title">28. What to do Next? by Pixsel Academy
+</div>
+      <div class="book-pages"> Price $35 | Pages 121</div>
+      <div class="book-pages"> Price $00 | Pages 121</div>
+      
+      <a class="original" href="https://sprrrint.gumroad.com/l/uipedia?fbclid=PAZXh0bgNhZW0CMTEAAaeYSdcy2jbRyU87nkINznSm5KxpDs3fjQV7Uth1MUhIWkQesPMnQGJoB9RN6w_aem__MdunNt2Fh3qg9NtztqULg">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1KjG0vZVtLSCmQYZ0eWLNnvuliio_0se2&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                                                            
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://i.imgur.com/Nu0YVK7.png" alt="Book 1">
+      </a>
+      <div class="book-title">29. Psychology of User by Pixsel Academy
+</div>
+      <div class="book-pages"> Price $35 | Pages 94</div>
+      <div class="book-pages"> Price $00 | Pages 94</div>
+      
+      <a class="original" href="https://sprrrint.gumroad.com/l/uipedia?fbclid=PAZXh0bgNhZW0CMTEAAaeYSdcy2jbRyU87nkINznSm5KxpDs3fjQV7Uth1MUhIWkQesPMnQGJoB9RN6w_aem__MdunNt2Fh3qg9NtztqULg">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1mtfMQiJdVeAKBiRw36rHRSSyY7DklM81&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+    
+                                                            
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://i.imgur.com/883oA8q.png" alt="Book 1">
+      </a>
+      <div class="book-title">30. How to design better Ul components by Adrian Kuleszo
+</div>
+      <div class="book-pages"> Price $FREE | Pages 139</div>
+      <div class="book-pages"> Price $FREE | Pages 139</div>
+      
+      <a class="original" href="https://www.howtodesignbetter.com/">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1C1d3OdbtZ_5KhA17ZOvUAeunOSgY_HBT&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                                                            
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://i.imgur.com/5g0YdsJ.png" alt="Book 1">
+      </a>
+      <div class="book-title">31. Design Systems Handbook by Marco Suarez
+</div>
+      <div class="book-pages"> Price $6 | Pages 222</div>
+      <div class="book-pages"> Price $0 | Pages 222</div>
+      
+      <a class="original" href="https://www.amazon.com/Design-Systems-Handbook/dp/B07Z5GLMZB">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/u/0/uc?id=1RSBjtLHUpR6A645HfEjizNyB03iDpgA1&export=download">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                                                                
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://i.imgur.com/dAclEX6.png" alt="Book 1">
+      </a>
+      <div class="book-title">32. The Ultimate E-book for Crafting Design Systems from uadissi.design
+</div>
+      <div class="book-pages"> Price $79 | Pages 640+</div>
+      <div class="book-pages"> Price $00 | Pages 86</div>
+      
+      <a class="original" href="https://uadesignsystem.com/">Original PDF</a>
+      
+      <a class="download-btn1" href="https://drive.usercontent.google.com/u/0/uc?id=16s8lZoS87dLKdE_OTGSE9VZKzeAKTkKq&export=download">Free Preview PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+                                                                    
+    
+    <!-- Book Template -->
+    <div class="book">
+        <img src="https://i.imgur.com/2h1gIPE.png" alt="Book 1">
+      </a>
+      <div class="book-title">33. Web Design Mastery by Marina Budarina
+</div>
+      <div class="book-pages"> Price $79 | Pages 400+</div>
+      <div class="book-pages"> Price $00 | Pages 406</div>
+      
+      <a class="original" href="https://marinabudarina.design/webdesignmastery#buy">Original PDF</a>
+      
+      <a class="download-btn" href="https://drive.usercontent.google.com/download?id=1buxZ2IvddY3sxFlW1RM2PET-81J9QvBw&export=download&authuser=0">Download PDF</a>
+      
+      
+    </div>
+    <!-- Add more book entries as needed -->
+  </div>
+</body>
+</html>
